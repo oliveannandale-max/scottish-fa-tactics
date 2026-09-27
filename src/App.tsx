@@ -54,6 +54,8 @@ export function App() {
   const [players, setPlayers] = useState<PlayerNode[]>(INITIAL_BLUE_PLAYERS);
   const [shadowPlayers, setShadowPlayers] = useState<ShadowPlayerNode[]>(INITIAL_SHADOW_PLAYERS);
   const [ballCoord, setBallCoord] = useState<PitchCoordinates>({ x: 50, y: 50 });
+  const [mannequins, setMannequins] = useState<MannequinNode[]>(INITIAL_MANNEQUINS);
+  const [drawings, setDrawings] = useState<TacticalDrawing[]>(INITIAL_TACTICAL_DRAWINGS);
 
   // Opponent AI Engine State
   const [blockHeight, setBlockHeight] = useState<BlockHeight>('MID_BLOCK');

@@ -18,11 +18,38 @@ export interface PitchCoordinates {
   y: number; // 0 to 100 percentage of pitch height
 }
 
+export interface GranularCompetencies {
+  // Technical
+  passingRange: number;
+  firstTouch: number;
+  dribbling1v1: number;
+  ballStriking: number;
+  // Physical
+  speedAcceleration: number;
+  aerobicEndurance: number;
+  duelStrength: number;
+  agilityDeceleration: number;
+  // Cognitive / Psychological
+  scanningFrequency: number;
+  decisionSpeed: number;
+  composureUnderPress: number;
+  positionalAwareness: number;
+  // Social / Behavioural
+  leadership: number;
+  communication: number;
+  workRate: number;
+  coachability: number;
+}
+
 export interface TPPSProfile {
-  technical: number;     // 0 - 100 (Ball mastery, passing range, receiving under pressure)
-  physical: number;      // 0 - 100 (Aerobic power, high speed running, duel strength)
-  psychological: number; // 0 - 100 (Scanning, composure under press, decision speed)
-  social: number;        // 0 - 100 (Communication, tactical cohesion, leadership)
+  technical: number;     // 0 - 100 (Overall average)
+  physical: number;      // 0 - 100
+  psychological: number; // 0 - 100
+  social: number;        // 0 - 100
+  competencies?: GranularCompetencies;
+  dominantFoot?: 'Right' | 'Left' | 'Both';
+  preferredRole?: string;
+  notes?: string;
   history: {
     date: string;
     phase: string;
@@ -46,6 +73,53 @@ export interface PlayerNode {
   tpps: TPPSProfile;
   targetRoleFit?: string;
   isGhostVisible?: boolean;
+}
+
+export type MannequinColor = 'yellow' | 'orange' | 'red' | 'blue' | 'white' | 'dark' | 'neon';
+export type EquipmentType = 'mannequin' | 'cone' | 'pole' | 'hurdle' | 'mini_goal';
+
+export interface MannequinNode {
+  id: string;
+  x: number; // 0 - 100
+  y: number; // 0 - 100
+  type: EquipmentType;
+  color: MannequinColor;
+  rotation?: number; // degrees
+  label?: string;
+}
+
+export type DrawingType = 
+  | 'CURVED_ARROW' 
+  | 'STAGGERED_ARROW' 
+  | 'PASS_ARROW' 
+  | 'RUN_ARROW' 
+  | 'DRIBBLE_ARROW' 
+  | 'PRESS_ZONE';
+
+export interface TacticalDrawing {
+  id: string;
+  type: DrawingType;
+  points: PitchCoordinates[];
+  color: string;
+  label?: string;
+  controlPoint?: PitchCoordinates; // for curved bezier arrows
+}
+
+export interface AnimationKeyframe {
+  id: string;
+  frameIndex: number;
+  label: string;
+  playerCoords: Record<string, PitchCoordinates>;
+  shadowCoords?: Record<string, PitchCoordinates>;
+  ballCoord: PitchCoordinates;
+  mannequinCoords?: Record<string, PitchCoordinates>;
+}
+
+export interface TeamRoster {
+  id: string;
+  teamName: string;
+  category: string; // e.g. "Scottish FA UEFA B Cohort / U21 Squad"
+  players: PlayerNode[];
 }
 
 export interface ShadowPlayerNode {

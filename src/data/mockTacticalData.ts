@@ -1,4 +1,4 @@
-import type { PlayerNode, ShadowPlayerNode, RoleTemplate, TeamUnit } from '../types/tactics';
+import type { PlayerNode, ShadowPlayerNode, RoleTemplate, TeamUnit, MannequinNode, TacticalDrawing } from '../types/tactics';
 
 export const INITIAL_BLUE_PLAYERS: PlayerNode[] = [
   // Goalkeeper
@@ -364,7 +364,34 @@ export const UNIT_DETAILS: Record<TeamUnit, {
       coach: 'Praise bold 1v1 execution; prompt "If the cross comes early, who attacks the near post?"',
       environment: 'Attacking half with wide channels (15m each) and central penalty box area.',
       player: 'Instinctive movement timing; coordinated runs (one short to drag CB, one long behind).',
-      game: 'Goal scored from a Bridged Alternative pattern counts double.'
-    }
   }
 };
+
+export const INITIAL_MANNEQUINS: MannequinNode[] = [
+  { id: 'm1', x: 66, y: 33, type: 'mannequin', color: 'yellow', rotation: 0, label: 'Wall 1' },
+  { id: 'm2', x: 66, y: 40, type: 'mannequin', color: 'yellow', rotation: 0, label: 'Wall 2' },
+  { id: 'm3', x: 66, y: 47, type: 'mannequin', color: 'yellow', rotation: 0, label: 'Wall 3' },
+  { id: 'm4', x: 50, y: 24, type: 'mannequin', color: 'orange', rotation: 15, label: 'Midfield Pivot Screen' },
+  { id: 'm5', x: 78, y: 68, type: 'mannequin', color: 'red', rotation: -10, label: 'Passive Opponent' },
+  { id: 'c1', x: 42, y: 16, type: 'cone', color: 'neon', label: 'Gate A' },
+  { id: 'c2', x: 42, y: 30, type: 'cone', color: 'neon', label: 'Gate B' },
+  { id: 'pole1', x: 58, y: 75, type: 'pole', color: 'blue', label: 'Slalom Pole' }
+];
+
+export const INITIAL_TACTICAL_DRAWINGS: TacticalDrawing[] = [
+  {
+    id: 'draw-1',
+    type: 'CURVED_ARROW',
+    points: [{ x: 38, y: 50 }, { x: 72, y: 18 }],
+    controlPoint: { x: 55, y: 24 },
+    color: '#38bdf8',
+    label: 'Curved Diagonal Switch'
+  },
+  {
+    id: 'draw-2',
+    type: 'STAGGERED_ARROW',
+    points: [{ x: 22, y: 15 }, { x: 35, y: 12 }, { x: 50, y: 14 }, { x: 68, y: 10 }],
+    color: '#f59e0b',
+    label: 'Staggered Underlapping Run'
+  }
+];
