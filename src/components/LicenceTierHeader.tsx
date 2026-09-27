@@ -8,7 +8,8 @@ import {
   Lock, 
   Layers, 
   HelpCircle,
-  Award
+  Award,
+  FileText
 } from 'lucide-react';
 
 interface LicenceTierHeaderProps {
@@ -130,6 +131,18 @@ export const LicenceTierHeader: React.FC<LicenceTierHeaderProps> = ({
             ))}
           </select>
         </div>
+
+        {/* User Manual Download */}
+        <a
+          href="./Scottish_FA_UEFA_Licence_Tactical_Platform_Manual.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs border border-slate-700 hover:border-slate-600 transition-all cursor-pointer shadow-sm"
+          title="Download Official SFA Platform User Manual (PDF)"
+        >
+          <FileText className="w-3.5 h-3.5 text-amber-400" />
+          <span className="hidden sm:inline">Manual</span> (PDF)
+        </a>
 
         {/* Scottish FA AI Advisor Button */}
         <button

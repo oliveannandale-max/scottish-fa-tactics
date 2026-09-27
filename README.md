@@ -7,6 +7,9 @@ An interactive tactical board and session design suite engineered for Scottish F
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6.svg)
 ![Vite](https://img.shields.io/badge/Vite-7-646cff.svg)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8.svg)
+[![User Manual](https://img.shields.io/badge/User%20Manual-Download%20PDF-red.svg)](./public/Scottish_FA_UEFA_Licence_Tactical_Platform_Manual.pdf)
+
+> 📖 **Official Documentation**: Download the complete [Scottish FA UEFA Licence Tactical Platform User Manual (PDF)](./public/Scottish_FA_UEFA_Licence_Tactical_Platform_Manual.pdf) covering Dynamic Scaffolding, Animation Studio, SFA 4-Pillar Coaching Model, and Opponent AI.
 
 ---
 
